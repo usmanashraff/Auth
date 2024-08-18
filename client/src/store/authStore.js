@@ -2,7 +2,7 @@ import {create} from 'zustand'
 import axios  from 'axios'
 
 axios.defaults.withCredentials = true
-const AUTH_API_URL= import.meta.env.MODE === "development" ? 'http://localhost:5000/api/auth':'/api/auth'
+const AUTH_API_URL= import.meta.env.MODE === "development" ? 'http://localhost:5000/api/auth':`${import.meta.env.VITE_SERVER_API}/api/auth`
 
 export const useAuthstore = create((set)=>({
     user:null,

@@ -10,7 +10,7 @@ import path from 'path'
 const app = express()
 const PORT = process.env.PORT || 5000
 dotenv.config()
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 
 
@@ -27,17 +27,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()) // to parse the cookies
 app.use('/api/auth',authRoutes)
-app.get('/hello', (req,res)=>{
-    res.send("hello worlf")
+
+app.get('/', (req,res)=>{
+    res.send("hello world")
 })
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/client/dist")));
+// if (process.env.NODE_ENV === "production") {
+// 	app.use(express.static(path.join(__dirname, "/client/dist")));
 
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
-	});
-}
+// 	app.get("*", (req, res) => {
+// 		res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+// 	});
+// }
 
 
 
