@@ -27,9 +27,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()) // to parse the cookies
 app.use('/api/auth',authRoutes)
-app.get('/hello', (req,res)=>{
-    res.send("hello worlf")
-})
+
+console.log("hello server")
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/client/dist")));
